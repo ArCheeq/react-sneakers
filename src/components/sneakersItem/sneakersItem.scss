@@ -1,0 +1,43 @@
+.sneakers__item {
+    padding: 20px 29px 35px;
+    max-width: 210px;
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+
+    &__photo {
+        display: block;
+        margin: 0px auto;
+        margin-bottom: 14px;
+    }
+
+    &__name {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price__text {
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+
+            color: #BDBDBD;
+        }
+
+        .price__value {
+            font-weight: 700;
+            font-size: 14px;
+        }
+    }
+
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+} 
+
+.sneakers__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+}

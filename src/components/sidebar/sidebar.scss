@@ -1,0 +1,107 @@
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 12;
+
+        width: 385px;
+        height: 100%;
+        padding: 32px 30px;
+
+        background-color: #fff;
+
+        .sidebar__header {
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            margin-bottom: 30px;
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        .cart__empty {
+            max-width: 290px;
+            text-align: center;
+            margin: 0px auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            h2 {
+                margin-top: 21px;
+                margin-bottom: 10px;
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+                opacity: 0.4;
+                margin-bottom: 40px;
+            }
+        }
+
+        .sidebar__offerList {
+            flex: 1 1 auto;
+            overflow: auto;
+            margin-bottom: 30px;
+            &__item {
+                max-width: 325px;
+                padding: 20px;
+                margin-bottom: 20px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                border: 1px solid #F3F3F3;
+                border-radius: 20px;
+
+                .sneakers__offer__img {
+                    transform: translateY(-8px);
+                }
+
+                &__info {
+                    margin-left: 20px;
+                    margin-right: 12px;
+
+                    .sneakersName {
+                        font-size: 14px;
+                    }
+
+                    .sneakers__price {
+                        font-weight: 700;
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+
+        .sideber__offer__footer {
+            .offer__price {
+                display: flex;
+                margin-bottom: 40px;
+                font-size: 16px;
+                .dottedBorder {
+                    margin: 0px 9px;
+                    border-bottom: 1px dashed #DFDFDF;
+                    flex: 1 1 auto;
+                }
+            }
+        }
+    }
+}

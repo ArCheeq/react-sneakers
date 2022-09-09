@@ -1,0 +1,118 @@
+.wrapper {
+    max-width: 1080px; 
+    margin: 50px auto;
+
+    background-color: #fff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+}
+
+.toCartBtn, .like, .deleteSneakers {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.deleteSneakers {
+    svg {
+        rect {
+            transition: stroke 0.3s ease-in-out;
+        }
+    }
+}
+
+.deleteSneakers:hover {
+    svg {
+        rect {
+            stroke: #DBDBDB;
+        }
+    }
+}
+
+.btn__offer {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 18px;
+
+    color: #FFF;
+    font-weight: 600;
+    font-size: 16px;
+
+    padding: 19px 30px;
+
+    background-color: #9DD458;
+
+    span {
+        padding: 0px 35px;
+    }
+
+    img {
+        transition: transform .3s ease-in-out;
+    }
+
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+}
+
+.btn__offer:hover {
+    background: lighten(#9DD458, 5%);
+}
+
+.btn__offer:hover img {
+    transform: translateX(5px);
+}
+
+.btn__offer:active {
+    background: darken(#9DD458, 5%);
+}
+
+.title {
+    font-size: 32px;
+}
+
+.main {
+    padding: 40px 60px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .seach-block {
+        display: flex;
+        align-items: center;
+        padding: 0 18px;
+
+        border: 1px solid #F3F3F3;
+        border-radius: 10px;
+
+        input {
+            margin-left: 14px;
+            border: none;
+            padding: 15px 0;
+
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    }
+
+    .sneakers {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+}

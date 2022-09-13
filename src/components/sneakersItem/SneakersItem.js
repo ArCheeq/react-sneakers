@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import './sneakersItem.scss';
 
-const SneakersItem = ({src, price, title}) => {
+const SneakersItem = ({src, price, title, onAddToCart}) => {
     const [isAdded, setIsAdded] = useState(false);
+
+    const addToCart = () => {
+        onAddToCart({src, price, title});
+        setIsAdded(true);    
+    }
 
     return (
         <div className="sneakers__item">
@@ -16,7 +21,7 @@ const SneakersItem = ({src, price, title}) => {
                 <p className='price__text'>Цена:</p>
                 <b className='price__value'>{price} грн.</b>
             </div>
-            <button className="toCartBtn">
+            <button className="toCartBtn" onClick={addToCart}>
                 <img width={32} height={32} src={isAdded ? "/resources/img/addBtnChecked.svg" : "/resources/img/addBtn.svg"} alt="button" />
             </button>
             </div>

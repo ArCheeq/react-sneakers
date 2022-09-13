@@ -16,8 +16,8 @@ function App() {
 
   useEffect(() => {
     axios.get('https://63136394b466aa9b03988e97.mockapi.io/sneakers').then(res => setSneakers(res.data));
+    axios.get('https://63136394b466aa9b03988e97.mockapi.io/cart').then(res => setCartItems(res.data));
   }, []);
-
 
   const setOverflow = () => {
     if (cartOpen) {
@@ -29,13 +29,27 @@ function App() {
 
   useEffect(() => {
     setOverflow();
-  }, [cartOpen])
+  }, [cartOpen]);
+
+  const onAddToCart = (obj) => {
+    axios.post('https://63136394b466aa9b03988e97.mockapi.io/cart', obj).then(res => {
+      obj.id = res.data.id;
+      console.log(obj);
+    });
+    setCartItems((prev) => [...prev, obj]);
+  }
+
+  const onRemoveItem = (id) => {
+    console.log(id);
+    axios.delete(`https://63136394b466aa9b03988e97.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter(item => item.id != id ));
+  }
 
   return (
     <div className="App">
       <div className="wrapper">
         <Header onClickCart={() => setCartOpened(true)}/>
-        {cartOpen ? <Sidebar onClickCart={() => setCartOpened(false)} cartItems={cartItems}/> : null}
+        {cartOpen ? <Sidebar onClickCart={() => setCartOpened(false)} cartItems={cartItems} onRemove={onRemoveItem}/> : null}
         <main className='main'>
           <div className="main__header">
             <h1 className='title'>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
@@ -51,6 +65,7 @@ function App() {
                 src={item.src} 
                 price={item.price} 
                 title={item.title} 
+                onAddToCart={onAddToCart}
                 key={i}/>))
             }
           </div>

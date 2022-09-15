@@ -3,7 +3,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 43px 45px;
-    border-bottom: 1px solid #EAEAEA;;
+    border-bottom: 1px solid #EAEAEA;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 
     &__left {
         display: flex;

@@ -1,18 +1,32 @@
 import { useState } from 'react';
 import './sneakersItem.scss';
 
-const SneakersItem = ({src, price, title, onAddToCart}) => {
+const SneakersItem = ({src, price, title, id, onAddToCart, onAddToFavorite, favorite = false}) => {
     const [isAdded, setIsAdded] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(favorite);
 
     const addToCart = () => {
-        onAddToCart({src, price, title});
-        setIsAdded(true);    
+        if (!isAdded) {
+            onAddToCart({src, price, title});
+            setIsAdded(true); 
+        } else {
+            setIsAdded(false);
+        }   
+    }
+
+    const addToFavorite = () => {
+        if (!isFavorite) {
+            onAddToFavorite({src, price, title, id});
+            setIsFavorite(true);
+        } else {
+            onAddToFavorite({src, price, title, id});
+        }
     }
 
     return (
         <div className="sneakers__item">
-            <button className='like'>
-            <img width={32} height={32} src="/resources/img/unlikedBtn.svg" alt="like" />
+            <button className='like' onClick={addToFavorite}>
+            <img width={32} height={32} src={isFavorite ? "/resources/img/likedBtn.svg" : "/resources/img/unlikedBtn.svg"} alt="like" />
             </button>
             <img width={133} height={112} src={src} alt="sneakers" className="sneakers__item__photo" />
             <div className="sneakers__item__name">{title}</div>

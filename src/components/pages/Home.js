@@ -2,6 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SneakersItem from "../sneakersItem/SneakersItem";
 import { fetchSneakers, changeSearchValue } from "../store/slices/sneakersSlice";
+import { fetchCart } from "../store/slices/cartSlice";
+import Skeleton from "../skeleton/Skeleton";
+
+import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
 
@@ -13,27 +17,24 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchSneakers());
-
+    dispatch(fetchCart());
     // eslint-disable-next-line
   }, []);
-
-  if (sneakersLoadingStatus === 'loading') {
-    return <h2>Загрузка Кроссовок</h2>
-  } else if (sneakersLoadingStatus === 'error') {
-    return <h2>Произошла ошибка, повторите позже</h2>
-  }
 
   const onChangeSearchValue = (value) => {
     dispatch(changeSearchValue(value));
   }
 
   const renderSneakersList = (arr) => {
-    if (arr.length === 0) {
-      return <h2>Кроссовок пока нет</h2>
+
+    if (sneakersLoadingStatus === 'loading') {
+      return Array(12).fill( <Skeleton/> )
+    } else if (sneakersLoadingStatus === 'error') {
+      return <h2>Произошла ошибка, повторите позже</h2>
     }
 
     return arr.map(item => {
-      return <SneakersItem key={item.id} src={item.src} price={item.price} title={item.title}/>
+      return <SneakersItem key={item.id} id={item.id} src={item.src} price={item.price} title={item.title} cart={item.cart}/>
     })
   }
 

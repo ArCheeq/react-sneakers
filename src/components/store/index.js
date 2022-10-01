@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sneakers from './slices/sneakersSlice';
+import cart from './slices/cartSlice';
 
 const store = configureStore({
-    reducer: {sneakers},
+    reducer: {sneakers, cart},
     devTools: process.env.NODE_ENV !== 'production',
 });
 

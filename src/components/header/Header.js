@@ -1,6 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { cartIsActive } from '../store/slices/cartSlice';
 import './header.scss';
 
 const Header = () => {
+      
+      const dispatch = useDispatch();
+
+      const onOpenCart = () => {
+        dispatch(cartIsActive());
+      }
+
       return (
         <header className="header">
           <div className="header__left">
@@ -11,7 +20,7 @@ const Header = () => {
             </div>
           </div>
           <div className="header__right">
-            <div className="cart">
+            <div className="cart" onClick={onOpenCart}>
               <img width={18} height={17} src="/resources/img/cart.svg" alt="cart"/>
               <div className="totalPrice">1205 грн.</div>
             </div>

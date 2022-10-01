@@ -4,7 +4,7 @@ import { useHttp } from "../../hooks/useHttp";
 const initialState = {
     sneakers: [],
     sneakersLoadingStatus: 'idle',
-    searchValue: ''
+    searchValue: '',
 }
 
 export const fetchSneakers = createAsyncThunk(
@@ -21,6 +21,13 @@ const sneakersSlice = createSlice({
     reducers: {
         changeSearchValue: (state, action) => {
             state.searchValue = action.payload;
+        },
+        toggleCart: (state, action) => {
+            state.sneakers.forEach(item => {
+                if (item.id === action.payload) {
+                    item.cart = !item.cart;
+                }
+            });
         }
     },
     extraReducers: (builder) => {
@@ -42,4 +49,4 @@ const sneakersSlice = createSlice({
 const {actions, reducer} = sneakersSlice;
 
 export default reducer;
-export const {changeSearchValue} = actions;
+export const {changeSearchValue, toggleCart} = actions;

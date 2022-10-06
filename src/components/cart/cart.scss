@@ -1,11 +1,11 @@
 .sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     background: rgba(0, 0, 0, 0.4);
 
@@ -36,21 +36,52 @@
         }
 
         .cart__empty {
-            max-width: 290px;
+            max-width: 325px;
+            width: 100%;
             text-align: center;
-            margin: 0px auto;
-            position: relative;
+            position: absolute;
             top: 50%;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
             h2 {
                 margin-top: 21px;
                 margin-bottom: 10px;
                 font-size: 24px;
             }
             p {
+                max-width: 290px;
+                margin: 0px auto 40px;
                 font-size: 16px;
                 opacity: 0.4;
-                margin-bottom: 40px;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            &-enter {
+                opacity: 0;
+            }
+            
+            &-enter-active {
+                opacity: 1;
+                visibility: visible;
+                transition: all 500ms;
+            }
+            
+            &-enter-done {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            &-exit {
+                opacity: 1;
+            }
+            
+            &-exit-active {
+                opacity: 0;
+                visibility: hidden;
+                transition: all 500ms;
             }
         }
 
@@ -87,7 +118,30 @@
                         font-size: 14px;
                     }
                 }
-
+                &-enter {
+                    opacity: 0;
+                }
+                
+                &-enter-active {
+                    opacity: 1;
+                    visibility: visible;
+                    transition: all 500ms;
+                }
+                
+                &-enter-done {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                
+                &-exit {
+                    opacity: 1;
+                }
+                
+                &-exit-active {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 500ms;
+                }
             }
         }
 
@@ -104,4 +158,29 @@
             }
         }
     }
+}
+
+.sidebar-enter {
+    opacity: 0;
+}
+
+.sidebar-enter-active {
+    opacity: 1;
+    visibility: visible;
+    transition: all 300ms;
+}
+
+.sidebar-enter-done {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar-exit {
+    opacity: 1;
+}
+
+.sidebar-exit-active {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms;
 }

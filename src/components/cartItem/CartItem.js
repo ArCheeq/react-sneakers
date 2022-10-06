@@ -9,9 +9,17 @@ const CartItem = ({id, src, price, title}) => {
     const dispatch = useDispatch();
 
     const onDeleteFromCart = () => {
+        const item = {
+          id,
+          src,
+          price,
+          title,
+          cart: false
+        };
         dispatch(deleteSneakers(id));
         dispatch(toggleCart(id));
         request(`http://localhost:3001/cart/${id}`, 'DELETE');
+        request(`http://localhost:3001/sneakers/${id}`, 'PUT', JSON.stringify(item));
     }
     
     return (

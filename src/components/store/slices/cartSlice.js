@@ -26,7 +26,7 @@ const cartSlice = createSlice({
             state.sneakers.push(action.payload);
         },
         deleteSneakers: (state, action) => {
-            state.sneakers = state.sneakers.filter(item => item.id != action.payload);
+            state.sneakers = state.sneakers.filter(item => item.id !== action.payload);
         }
     },
     extraReducers: (builder) => {

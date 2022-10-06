@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import SneakersItem from "../sneakersItem/SneakersItem";
 import { fetchSneakers, changeSearchValue } from "../store/slices/sneakersSlice";
 import { fetchCart } from "../store/slices/cartSlice";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Skeleton from "../skeleton/Skeleton";
-
-import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
 

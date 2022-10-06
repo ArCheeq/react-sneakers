@@ -19,47 +19,42 @@
       "src": "/resources/sneakers/sneakers3.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": true
+      "cart": false
     },
     {
       "id": "d15f9677-9a49-40bc-9f24-cc8992998cf4",
       "src": "/resources/sneakers/sneakers4.jpg",
       "price": 8999,
       "title": "Кроссовки Puma X Aka Boku Future Rider",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "2315f4c2-417b-11ed-b878-0242ac120002",
       "src": "/resources/sneakers/sneakers5.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "a841329c-417b-11ed-b878-0242ac120002",
       "src": "/resources/sneakers/sneakers6.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "ad6bbf58-417b-11ed-b878-0242ac120002",
       "src": "/resources/sneakers/sneakers7.jpg",
       "price": 8999,
       "title": "Кроссовки Puma X Aka Boku Future Rider",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "b0a446c2-417b-11ed-b878-0242ac120002",
       "src": "/resources/sneakers/sneakers8.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "b49c6cc8-417b-11ed-b878-0242ac120002",

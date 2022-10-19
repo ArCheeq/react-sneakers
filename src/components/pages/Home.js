@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import SneakersItem from "../sneakersItem/SneakersItem";
 import { fetchSneakers, changeSearchValue } from "../store/slices/sneakersSlice";
 import { fetchCart } from "../store/slices/cartSlice";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Skeleton from "../skeleton/Skeleton";
+
+import { nanoid } from 'nanoid'
 
 const Home = () => {
 
@@ -27,13 +28,15 @@ const Home = () => {
   const renderSneakersList = (arr) => {
 
     if (sneakersLoadingStatus === 'loading') {
-      return Array(12).fill( <Skeleton/> )
+      return Array(12).fill( <Skeleton/> ).map(item => {
+        return <Skeleton key={nanoid()}/>
+      })
     } else if (sneakersLoadingStatus === 'error') {
       return <h2>Произошла ошибка, повторите позже</h2>
     }
 
     return arr.map(item => {
-      return <SneakersItem key={item.id} id={item.id} src={item.src} price={item.price} title={item.title} cart={item.cart}/>
+      return <SneakersItem key={item.id} id={item.id} src={item.src} price={item.price} title={item.title} cart={item.cart} favorite={item.favorite}/>
     })
   }
 

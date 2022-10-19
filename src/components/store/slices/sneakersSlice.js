@@ -28,6 +28,13 @@ const sneakersSlice = createSlice({
                     item.cart = !item.cart;
                 }
             });
+        },
+        toggleFavorite: (state, action) => {
+            state.sneakers.forEach(item => {
+                if (item.id === action.payload) {
+                    item.favorite = !item.favorite;
+                }
+            });
         }
     },
     extraReducers: (builder) => {
@@ -49,4 +56,4 @@ const sneakersSlice = createSlice({
 const {actions, reducer} = sneakersSlice;
 
 export default reducer;
-export const {changeSearchValue, toggleCart} = actions;
+export const {changeSearchValue, toggleCart, toggleFavorite} = actions;

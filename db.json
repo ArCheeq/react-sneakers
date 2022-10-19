@@ -1,18 +1,20 @@
 {
   "sneakers": [
     {
-      "id": "1c6003cc-7f89-4541-9266-5d707e434822",
+      "id": "SVj8U7IGBjCaTTPxVf3UV",
       "src": "/resources/sneakers/sneakers1.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false
+      "cart": false,
+      "favorite": false
     },
     {
       "id": "60b707a0-b212-4818-8ca0-aaa797bc07ec",
       "src": "/resources/sneakers/sneakers2.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false
+      "cart": false,
+      "favorite": false
     },
     {
       "id": "f037b053-70ef-46d3-8f6c-a4263ca94aa9",
@@ -22,25 +24,28 @@
       "cart": false
     },
     {
-      "id": "d15f9677-9a49-40bc-9f24-cc8992998cf4",
+      "id": "hGQBD2QOHcEIUOtJaLOI5",
       "src": "/resources/sneakers/sneakers4.jpg",
       "price": 8999,
       "title": "Кроссовки Puma X Aka Boku Future Rider",
-      "cart": false
+      "cart": false,
+      "favorite": false
     },
     {
-      "id": "2315f4c2-417b-11ed-b878-0242ac120002",
+      "id": "A773C6MbLRfsbs5jnDmoN",
       "src": "/resources/sneakers/sneakers5.jpg",
-      "price": 8499,
-      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false
+      "price": 8999,
+      "title": "Кроссовки Puma X Aka Boku Future Rider",
+      "cart": false,
+      "favorite": false
     },
     {
-      "id": "a841329c-417b-11ed-b878-0242ac120002",
+      "id": "d15f9677-9a49-40bc-9f24-cc8992998cf4",
       "src": "/resources/sneakers/sneakers6.jpg",
-      "price": 8499,
-      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false
+      "price": 8999,
+      "title": "Кроссовки Puma X Aka Boku Future Rider",
+      "cart": false,
+      "favorite": false
     },
     {
       "id": "ad6bbf58-417b-11ed-b878-0242ac120002",
@@ -61,8 +66,7 @@
       "src": "/resources/sneakers/sneakers9.jpg",
       "price": 8499,
       "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "b8639bf6-417b-11ed-b878-0242ac120002",

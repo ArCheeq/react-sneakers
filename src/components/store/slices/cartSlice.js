@@ -22,10 +22,10 @@ const cartSlice = createSlice({
         cartIsActive: (state) => {
             state.isCartOpen = !state.isCartOpen;
         },
-        addSneakers: (state, action) => {
+        addCartSneakers: (state, action) => {
             state.sneakers.push(action.payload);
         },
-        deleteSneakers: (state, action) => {
+        deleteCartSneakers: (state, action) => {
             state.sneakers = state.sneakers.filter(item => item.id !== action.payload);
         }
     },
@@ -48,4 +48,4 @@ const cartSlice = createSlice({
 const {actions, reducer} = cartSlice;
 
 export default reducer;
-export const {cartIsActive, addSneakers, deleteSneakers} = actions;
+export const {cartIsActive, addCartSneakers, deleteCartSneakers} = actions;

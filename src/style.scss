@@ -39,6 +39,8 @@
 .btn__offer {
     width: 100%;
 
+    text-decoration: none;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,7 +132,7 @@
     }
 }
 
-.favorite__header {
+.main__header {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
@@ -138,6 +140,10 @@
     a {
         margin-right: 30px;
     }
+}
+
+.main__header-favorite, .main__header-profile {
+    justify-content: left;
 }
 
 .error {
@@ -188,5 +194,22 @@
         opacity: 0;
         visibility: hidden;
         transition: all 500ms;
+    }
+}
+
+.profile {
+    .order {
+        .order__title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+        }
+        .order__list {
+            flex-wrap: wrap;
+            display: flex;
+            gap: 40px;
+        }
+
+        margin-bottom: 20px;
     }
 }

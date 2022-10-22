@@ -1,29 +1,69 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartIsActive } from '../store/slices/cartSlice';
+import { cartIsActive, countTotalPrice } from '../store/slices/cartSlice';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { deleteCartSneakers } from '../store/slices/cartSlice';
+import { toggleCart } from '../store/slices/sneakersSlice';
 import CartItem from '../cartItem/CartItem';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+
+import { useHttp } from '../hooks/useHttp';
 
 import './cart.scss';
 
 const Cart = () => {
 
+  const {request} = useHttp();
   const dispatch = useDispatch();
   const {sneakers} = useSelector(state => state.cart);
   const {isCartOpen} = useSelector(state => state.cart);
-  let priceOffer = 0;
+  const {totalPrice} = useSelector(state => state.cart);
   const nodeRef = useRef(null);
-  
-  sneakers.forEach(element => {
-    priceOffer += element.price;
-  });
+  const [IsOffer, setIsOffer] = useState(false);
+
+  useEffect(() => {
+    dispatch(countTotalPrice());
+    // eslint-disable-next-line
+  }, [sneakers])
 
   const onCloseCart = () => {
     dispatch(cartIsActive());
   }
 
+  const clearCart = () => {
+    sneakers.forEach(element => {
+        const item = {
+          id: element.id,
+          src: element.src,
+          price: element.price,
+          title: element.title,
+          cart: false
+        };
+        dispatch(deleteCartSneakers(element.id));
+        dispatch(toggleCart(element.id));
+        request(`http://localhost:3001/cart/${element.id}`, 'DELETE');
+        request(`http://localhost:3001/sneakers/${element.id}`, 'PUT', JSON.stringify(item));
+    });
+  }
+
+  const orderPurchase = () => {
+    if (sneakers.length > 0) {
+      request("http://localhost:3001/offerList", "POST", JSON.stringify(sneakers));
+      clearCart();
+      setIsOffer(true);
+
+      setTimeout(() => {
+        setIsOffer(false);
+      }, 5000);
+    }
+  }
+
   const renderCartItems = (arr) => {
-    if (arr.length === 0) {
+    if (IsOffer) {
+      return <CSSTransition timeout={500} classNames="cart__offer">
+                <ActiveOfferCart onClose={onCloseCart}/>
+              </CSSTransition>
+    } else if (arr.length === 0) {
       return <CSSTransition timeout={500} classNames="cart__empty">
                 <EmptyCart onClose={onCloseCart}/>
               </CSSTransition>
@@ -42,7 +82,7 @@ const Cart = () => {
       <CSSTransition 
         in={isCartOpen}
         nodeRef={nodeRef}
-        timeout={300}
+        timeout={500}
         classNames="sidebar"
         mountOnEnter
         unmountOnExit>
@@ -62,18 +102,18 @@ const Cart = () => {
                 {elements}
               </TransitionGroup>
             </div>
-            <div className="sideber__offer__footer">
+            <div className="sideber__offer__footer" style={IsOffer ? {"display": "none"} : null}>
               <div className="offer__price">
                   <span>Итого:</span>
                   <div className="dottedBorder"></div>
-                  <span><b>{priceOffer} грн.</b></span>
+                  <span><b>{totalPrice} грн.</b></span>
               </div>
               <div className="offer__price">
                   <span>Налог:</span>
                   <div className="dottedBorder"></div>
-                  <span><b>{Math.floor(priceOffer * 0.01)} грн.</b></span>
+                  <span><b>{Math.floor(totalPrice * 0.01)} грн.</b></span>
               </div>
-              <button className="btn__offer">
+              <button className="btn__offer" onClick={orderPurchase}>
                   <span>Оформить заказ</span>
                   <img src="/resources/img/offer-right.svg" alt="arrow" />
               </button>
@@ -90,6 +130,20 @@ const EmptyCart = ({onClose}) => {
       <img width={120} height={120} src="/resources/img/box.jpg" alt="" />
       <h2>Корзина пустая</h2>
       <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+      <button className="btn__offer" onClick={onClose}>
+          <span>Вернуться назад</span>
+          <img src="/resources/img/offer-right.svg" alt="arrow" />
+      </button>
+    </div>
+  )
+}
+
+const ActiveOfferCart = ({onClose}) => {
+  return (
+    <div className="cart__offer">
+      <img width={120} height={120} src="/resources/img/offer.png" alt="offer" />
+      <h2>Заказ оформлен!</h2>
+      <p>Ваш заказ #18 скоро будет передан курьерской доставке</p>
       <button className="btn__offer" onClick={onClose}>
           <span>Вернуться назад</span>
           <img src="/resources/img/offer-right.svg" alt="arrow" />

@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartIsActive } from '../store/slices/cartSlice';
 import './header.scss';
 
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
       
       const dispatch = useDispatch();
+      const {totalPrice} = useSelector(state => state.cart);
 
       const onOpenCart = () => {
         dispatch(cartIsActive());
@@ -24,7 +25,7 @@ const Header = () => {
           <div className="header__right">
             <Link className="cart" onClick={onOpenCart}>
               <img width={18} height={17} src="/resources/img/cart.svg" alt="cart"/>
-              <div className="totalPrice">1205 грн.</div>
+              <div className="totalPrice">{totalPrice} грн.</div>
             </Link>
             <Link to="/favorites" className="favourite">
               <img width={21} height={19} src="/resources/img/favourite.svg" alt="favourite" />

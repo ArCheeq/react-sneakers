@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+
+import { useEffect } from "react";
+import { fetchSneakers } from "../store/slices/sneakersSlice";
+import { fetchCart, countTotalPrice } from "../store/slices/cartSlice";
 
 import SneakersItem from "../sneakersItem/SneakersItem";
 import Skeleton from "../skeleton/Skeleton";
@@ -9,12 +13,20 @@ import { nanoid } from 'nanoid';
 
 const Favorite = () => {
 
+    const dispatch = useDispatch();
     const {sneakers, sneakersLoadingStatus} = useSelector(state => state.sneakers);
+
+    useEffect(() => {
+        dispatch(fetchSneakers());
+        dispatch(fetchCart());
+        dispatch(countTotalPrice());
+        // eslint-disable-next-line
+    }, []);
 
     const renderSneakersList = (arr) => {
 
         if (sneakersLoadingStatus === 'loading') {
-            // return Array(12).fill( <Skeleton/> ) Баг с Transition Group не обновляется значение elements внутри компонента
+            // return [...new Array(6)].map(() => <Skeleton id={nanoid()} /> )
         } else if (sneakersLoadingStatus === 'error') {
             return <h2 className="error">Произошла ошибка, повторите позже...</h2>
         }
@@ -34,7 +46,7 @@ const Favorite = () => {
 
     return (
         <main className='main'>
-            <div className="favorite__header">
+            <div className="main__header main__header-favorite">
                 <Link to="/">
                     <img src="/resources/img/goMainPage.png" alt="Left Arrow" />
                 </Link>
@@ -59,10 +71,10 @@ const EmptyFavorite = () => {
                     <div className="emptyFavoriteDescr">
                         <h2>Закладок нет :(</h2>
                         <p>Вы ничего не добавили в закладки</p>
-                        <button className="btn__offer">
+                        <Link to="/" className="btn__offer">
                             <span>Вернуться назад</span>
                             <img src="/resources/img/offer-right.svg" alt="arrow" />
-                        </button>   
+                        </Link>   
                     </div>
                 </div>
             </div>

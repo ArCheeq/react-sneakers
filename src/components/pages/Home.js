@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SneakersItem from "../sneakersItem/SneakersItem";
 import { fetchSneakers, changeSearchValue } from "../store/slices/sneakersSlice";
-import { fetchCart } from "../store/slices/cartSlice";
+import { fetchCart, countTotalPrice } from "../store/slices/cartSlice";
 import Skeleton from "../skeleton/Skeleton";
 
 import { nanoid } from 'nanoid'
@@ -18,6 +18,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchSneakers());
     dispatch(fetchCart());
+    dispatch(countTotalPrice());
     // eslint-disable-next-line
   }, []);
 

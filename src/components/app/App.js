@@ -1,6 +1,7 @@
 import Header from '../header/Header';
 import Home from '../pages/Home';
 import Favorite from '../pages/Favorite';
+import Profile from '../pages/Profile';
 import Cart from '../cart/Cart';
 
 import { Routes, Route } from 'react-router-dom';
@@ -26,10 +27,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/favorites' element={<Favorite/>}/>
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </div>
     </div>
   );
 }
-
+  
 export default App;

@@ -85,6 +85,57 @@
             }
         }
 
+        .cart__offer {
+            max-width: 325px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            h2 {
+                color: #87C20A;
+                margin-top: 21px;
+                margin-bottom: 10px;
+                font-size: 24px;
+            }
+            p {
+                max-width: 290px;
+                margin: 0px auto 40px;
+                font-size: 16px;
+                opacity: 0.4;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            &-enter {
+                opacity: 0;
+            }
+            
+            &-enter-active {
+                opacity: 1;
+                visibility: visible;
+                transition: all 500ms;
+            }
+            
+            &-enter-done {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            &-exit {
+                opacity: 1;
+            }
+            
+            &-exit-active {
+                opacity: 0;
+                visibility: hidden;
+                transition: all 500ms;
+            }
+        }
+
         .sidebar__offerList {
             flex: 1 1 auto;
             overflow: auto;
@@ -162,12 +213,14 @@
 
 .sidebar-enter {
     opacity: 0;
+    transform: translateX(100%);
 }
 
 .sidebar-enter-active {
     opacity: 1;
     visibility: visible;
-    transition: all 300ms;
+    transform: translateX(0%);
+    transition: all 500ms;
 }
 
 .sidebar-enter-done {
@@ -177,10 +230,12 @@
 
 .sidebar-exit {
     opacity: 1;
+    transform: translateX(0%);
 }
 
 .sidebar-exit-active {
     opacity: 0;
     visibility: hidden;
-    transition: all 300ms;
+    transform: translateX(100%);
+    transition: all 500ms;
 }

@@ -5,6 +5,7 @@ const initialState = {
     isCartOpen: false,
     sneakers: [],
     sneakersLoadingStatus: 'idle',
+    totalPrice: 0,
 }
 
 export const fetchCart = createAsyncThunk(
@@ -27,6 +28,9 @@ const cartSlice = createSlice({
         },
         deleteCartSneakers: (state, action) => {
             state.sneakers = state.sneakers.filter(item => item.id !== action.payload);
+        },
+        countTotalPrice: (state) => {
+            state.totalPrice = state.sneakers.reduce((sum, obj) => obj.price + sum, 0); 
         }
     },
     extraReducers: (builder) => {
@@ -48,4 +52,4 @@ const cartSlice = createSlice({
 const {actions, reducer} = cartSlice;
 
 export default reducer;
-export const {cartIsActive, addCartSneakers, deleteCartSneakers} = actions;
+export const {cartIsActive, addCartSneakers, deleteCartSneakers, countTotalPrice} = actions;

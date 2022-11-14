@@ -13,8 +13,7 @@
       "src": "/resources/sneakers/sneakers2.jpg",
       "price": 8499,
       "title": "Кроссовки Puma X Aka Boku Future Rider",
-      "cart": false,
-      "favorite": false
+      "cart": false
     },
     {
       "id": "f037b053-70ef-46d3-8f6c-a4263ca94aa9",
@@ -28,7 +27,8 @@
       "src": "/resources/sneakers/sneakers4.jpg",
       "price": 8999,
       "title": "Кроссовки Puma X Aka Boku Future Rider",
-      "cart": false
+      "cart": false,
+      "favorite": false
     },
     {
       "id": "A773C6MbLRfsbs5jnDmoN",
@@ -92,32 +92,9 @@
   "offerList": [
     [
       {
-        "id": "c29689b2-417b-11ed-b878-0242ac120002",
-        "src": "/resources/sneakers/sneakers12.jpg",
+        "id": "60b707a0-b212-4818-8ca0-aaa797bc07ec",
+        "src": "/resources/sneakers/sneakers2.jpg",
         "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
-      },
-      {
-        "id": "bbd3f22c-417b-11ed-b878-0242ac120002",
-        "src": "/resources/sneakers/sneakers11.jpg",
-        "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
-      },
-      {
-        "id": "b8639bf6-417b-11ed-b878-0242ac120002",
-        "src": "/resources/sneakers/sneakers10.jpg",
-        "price": 8999,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
-      }
-    ],
-    [
-      {
-        "id": "hGQBD2QOHcEIUOtJaLOI5",
-        "src": "/resources/sneakers/sneakers4.jpg",
-        "price": 8999,
         "title": "Кроссовки Puma X Aka Boku Future Rider",
         "cart": true
       },
@@ -127,66 +104,21 @@
         "price": 8499,
         "title": "Кроссовки Puma X Aka Boku Future Rider",
         "cart": true
-      },
-      {
-        "id": "60b707a0-b212-4818-8ca0-aaa797bc07ec",
-        "src": "/resources/sneakers/sneakers2.jpg",
-        "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
       }
     ],
     [
       {
-        "id": "SVj8U7IGBjCaTTPxVf3UV",
-        "src": "/resources/sneakers/sneakers1.jpg",
+        "id": "b0a446c2-417b-11ed-b878-0242ac120002",
+        "src": "/resources/sneakers/sneakers8.jpg",
         "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true,
-        "favorite": false
-      },
-      {
-        "id": "60b707a0-b212-4818-8ca0-aaa797bc07ec",
-        "src": "/resources/sneakers/sneakers2.jpg",
-        "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true,
-        "favorite": false
-      },
-      {
-        "id": "d15f9677-9a49-40bc-9f24-cc8992998cf4",
-        "src": "/resources/sneakers/sneakers6.jpg",
-        "price": 8999,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true,
-        "favorite": false
+        "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+        "cart": true
       },
       {
         "id": "ad6bbf58-417b-11ed-b878-0242ac120002",
         "src": "/resources/sneakers/sneakers7.jpg",
         "price": 8999,
         "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
-      },
-      {
-        "id": "bbd3f22c-417b-11ed-b878-0242ac120002",
-        "src": "/resources/sneakers/sneakers11.jpg",
-        "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
-      },
-      {
-        "id": "c29689b2-417b-11ed-b878-0242ac120002",
-        "src": "/resources/sneakers/sneakers12.jpg",
-        "price": 8499,
-        "title": "Кроссовки Puma X Aka Boku Future Rider",
-        "cart": true
-      },
-      {
-        "id": "b0a446c2-417b-11ed-b878-0242ac120002",
-        "src": "/resources/sneakers/sneakers8.jpg",
-        "price": 8499,
-        "title": "Мужские Кроссовки Nike Blazer Mid Suede",
         "cart": true
       }
     ]

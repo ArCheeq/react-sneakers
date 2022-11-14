@@ -4,6 +4,8 @@ import SneakersItem from "../sneakersItem/SneakersItem";
 import { fetchSneakers, changeSearchValue } from "../store/slices/sneakersSlice";
 import { fetchCart, countTotalPrice } from "../store/slices/cartSlice";
 import Skeleton from "../skeleton/Skeleton";
+import { Helmet } from "react-helmet";
+import Slider from "../slider/Slider";
 
 import { nanoid } from 'nanoid'
 
@@ -45,6 +47,13 @@ const Home = () => {
 
     return (
         <main className='main'>
+          <Helmet>
+              <meta
+                  name="description"
+                  content="Sneakers Online Shop"/>
+              <title>React Sneakers</title>
+          </Helmet>
+          <Slider/>
           <div className="main__header">
             <h1 className='title'>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
             <div className="seach-block">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Helmet } from "react-helmet";
 
 import { useEffect } from "react";
 import { fetchSneakers } from "../store/slices/sneakersSlice";
@@ -46,13 +47,18 @@ const Favorite = () => {
 
     return (
         <main className='main'>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Sneakers Online Shop - Favorite Page"/>
+                <title>Favorite Sneakers</title>
+            </Helmet>
             <div className="main__header main__header-favorite">
                 <Link to="/">
                     <img src="/resources/img/goMainPage.png" alt="Left Arrow" />
                 </Link>
                 <h1 className='title'>Мои закладки</h1>
             </div>
-            
             <TransitionGroup className="sneakersFavorite">
                 {elements.length ? elements : <EmptyFavorite /> }
             </TransitionGroup>

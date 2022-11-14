@@ -1,7 +1,6 @@
 import SneakersItem from "../sneakersItem/SneakersItem"
 
 const Favorite = ({ items, onAddToFavorite }) => {
-    console.log(items);
     return (
         <div className="main">
             <h1 className='title'>Мои закладки</h1>

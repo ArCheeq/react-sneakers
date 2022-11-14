@@ -9,6 +9,8 @@ import Slider from "../slider/Slider";
 
 import { nanoid } from 'nanoid'
 
+import search from "../../resources/img/search.svg";
+
 const Home = () => {
 
   const dispatch = useDispatch();
@@ -57,7 +59,7 @@ const Home = () => {
           <div className="main__header">
             <h1 className='title'>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
             <div className="seach-block">
-              <img src="/resources/img/search.svg" alt="search" />
+              <img src={search} alt="search" />
               <input type="text" placeholder='Поиск...' onChange={(e) => onChangeSearchValue(e.target.value)} value={searchValue}/>
             </div>
           </div>

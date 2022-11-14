@@ -4,26 +4,26 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 import './swiper.scss';
 
+import sliderImg from "../../resources/img/sliderImg.png";
+
 const Slider = () => {
     return (
         <Swiper
             spaceBetween={50}
             slidesPerView={1}
             modules={[Navigation]}
-            navigation
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}>
+            navigation>
             <SwiperSlide width="100%">
-                <img src="/resources/img/sliderImg.png" alt="Promo image"/>
+                <img src={sliderImg} alt="Promo image"/>
             </SwiperSlide>
             <SwiperSlide width="100%">
-                <img src="/resources/img/sliderImg.png" alt="Promo image"/>
+                <img src={sliderImg} alt="Promo image"/>
             </SwiperSlide>
             <SwiperSlide width="100%">
-                <img src="/resources/img/sliderImg.png" alt="Promo image"/>
+                <img src={sliderImg} alt="Promo image"/>
             </SwiperSlide>
             <SwiperSlide width="100%">
-                <img src="/resources/img/sliderImg.png" alt="Promo image"/>
+                <img src={sliderImg} alt="Promo image"/>
             </SwiperSlide>
         </Swiper>
     )

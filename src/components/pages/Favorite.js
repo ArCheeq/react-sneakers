@@ -12,6 +12,10 @@ import Skeleton from "../skeleton/Skeleton";
 
 import { nanoid } from 'nanoid';
 
+import leftArrow from "../../resources/img/goMainPage.png";
+import emptyFavorite from "../../resources/img/EmptyFavorite.png";
+import arrow from "../../resources/img/offer-right.svg";
+
 const Favorite = () => {
 
     const dispatch = useDispatch();
@@ -43,8 +47,6 @@ const Favorite = () => {
 
     const elements = renderSneakersList(sneakers.filter((item) => item.favorite));
 
-    console.log(elements);
-
     return (
         <main className='main'>
             <Helmet>
@@ -55,7 +57,7 @@ const Favorite = () => {
             </Helmet>
             <div className="main__header main__header-favorite">
                 <Link to="/">
-                    <img src="/resources/img/goMainPage.png" alt="Left Arrow" />
+                    <img src={leftArrow} alt="Left Arrow" />
                 </Link>
                 <h1 className='title'>Мои закладки</h1>
             </div>
@@ -73,13 +75,13 @@ const EmptyFavorite = () => {
         <CSSTransition timeout={500} classNames="emptyFavorite">
             <div className="emptyFavorite">
                 <div className="emptyFavorite__inner">
-                    <img className="emptyFavoriteImg" width={70} height={70} src="/resources/img/EmptyFavorite.png" alt="Empty Favorite" />
+                    <img className="emptyFavoriteImg" width={70} height={70} src={emptyFavorite} alt="Empty Favorite" />
                     <div className="emptyFavoriteDescr">
                         <h2>Закладок нет :(</h2>
                         <p>Вы ничего не добавили в закладки</p>
                         <Link to="/" className="btn__offer">
                             <span>Вернуться назад</span>
-                            <img src="/resources/img/offer-right.svg" alt="arrow" />
+                            <img src={arrow} alt="arrow" />
                         </Link>   
                     </div>
                 </div>

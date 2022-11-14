@@ -11,6 +11,10 @@ import { useHttp } from '../hooks/useHttp';
 
 import './cart.scss';
 
+import offer from "../../resources/img/offer.png";
+import offerRight from "../../resources/img/offer-right.svg";
+import box from "../../resources/img/box.jpg";
+
 const Cart = () => {
 
   const {request} = useHttp();
@@ -102,7 +106,7 @@ const Cart = () => {
                 {elements}
               </TransitionGroup>
             </div>
-            <div className="sideber__offer__footer" style={IsOffer ? {"display": "none"} : null}>
+            <div className="sideber__offer__footer" style={ sneakers.length > 0 ? null : {"display": "none"}}>
               <div className="offer__price">
                   <span>Итого:</span>
                   <div className="dottedBorder"></div>
@@ -115,7 +119,7 @@ const Cart = () => {
               </div>
               <button className="btn__offer" onClick={orderPurchase}>
                   <span>Оформить заказ</span>
-                  <img src="/resources/img/offer-right.svg" alt="arrow" />
+                  <img src={offerRight} alt="arrow" />
               </button>
             </div>    
           </div>
@@ -127,12 +131,12 @@ const Cart = () => {
 const EmptyCart = ({onClose}) => {
   return (
     <div className="cart__empty">
-      <img width={120} height={120} src="/resources/img/box.jpg" alt="" />
+      <img width={120} height={120} src={box} alt="" />
       <h2>Корзина пустая</h2>
       <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
       <button className="btn__offer" onClick={onClose}>
           <span>Вернуться назад</span>
-          <img src="/resources/img/offer-right.svg" alt="arrow" />
+          <img src={offerRight} alt="arrow" />
       </button>
     </div>
   )
@@ -141,12 +145,12 @@ const EmptyCart = ({onClose}) => {
 const ActiveOfferCart = ({onClose}) => {
   return (
     <div className="cart__offer">
-      <img width={120} height={120} src="/resources/img/offer.png" alt="offer" />
+      <img width={120} height={120} src={offer} alt="offer" />
       <h2>Заказ оформлен!</h2>
       <p>Ваш заказ #18 скоро будет передан курьерской доставке</p>
       <button className="btn__offer" onClick={onClose}>
           <span>Вернуться назад</span>
-          <img src="/resources/img/offer-right.svg" alt="arrow" />
+          <img src={offerRight} alt="arrow" />
       </button>
     </div>
   )

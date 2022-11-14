@@ -1,6 +1,11 @@
 import useToggleState from '../hooks/useToggleState';
 import './sneakersItem.scss';
 
+import likedBtn from "../../resources/img/likedBtn.svg";
+import unLikedBtn from "../../resources/img/unlikedBtn.svg";
+import addBtnChecked from "../../resources/img/addBtnChecked.svg";
+import addBtn from "../../resources/img/addBtn.svg";
+
 const SneakersItem = ({id, src, price, title, cart, favorite, profile}) => {
 
     const {onToggleCart, onToggleFavorite} = useToggleState();
@@ -27,7 +32,7 @@ const SneakersItem = ({id, src, price, title, cart, favorite, profile}) => {
     return (
         <div className="sneakers__item" key={id}>
             <button className='like' onClick={() => onToggleSneakers('favorite')} style={profile ? {"display": "none"} : null}>
-            <img width={32} height={32} src={favorite ? "/resources/img/likedBtn.svg" : "/resources/img/unlikedBtn.svg"} alt="like" />
+            <img width={32} height={32} src={favorite ? likedBtn : unLikedBtn} alt="like" />
             </button>
             <img width={133} height={112} src={src} alt="sneakers" className="sneakers__item__photo" />
             <div className="sneakers__item__name">{title}</div>
@@ -37,7 +42,7 @@ const SneakersItem = ({id, src, price, title, cart, favorite, profile}) => {
                 <b className='price__value'>{price} грн.</b>
             </div>
             <button className="toCartBtn" onClick={() => onToggleSneakers('cart')} style={profile ? {"display": "none"} : null}>
-                <img width={32} height={32} src={cart ? "/resources/img/addBtnChecked.svg"  : "/resources/img/addBtn.svg"} alt="button" />
+                <img width={32} height={32} src={cart ? addBtnChecked  : addBtn} alt="button" />
             </button>
             </div>
         </div>
